@@ -6,8 +6,8 @@ const Home: NextPage = () => {
     <div>
       <Head>
         <title>PlanningPokerRoom</title>
-        <meta name="description" content="PlanningPokerRoom<" />
-        <link rel="icon" href="/favicon.ico" />
+        <meta name='description' content='PlanningPokerRoom<' />
+        <link rel='icon' href='/favicon.ico' />
       </Head>
     </div>
   )
