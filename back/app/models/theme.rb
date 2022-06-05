@@ -1,2 +1,4 @@
 class Theme < ApplicationRecord
+  belongs_to :room
+  has_many :cards, dependent: :destroy
 end

@@ -10,11 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_06_05_093147) do
+ActiveRecord::Schema[7.0].define(version: 2022_06_05_122339) do
   create_table "cards", force: :cascade do |t|
     t.integer "count"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "theme_id"
+    t.index ["theme_id"], name: "index_cards_on_theme_id"
   end
 
   create_table "rooms", force: :cascade do |t|
@@ -27,6 +29,10 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_05_093147) do
     t.integer "count"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "room_id"
+    t.index ["room_id"], name: "index_themes_on_room_id"
   end
 
+  add_foreign_key "cards", "themes"
+  add_foreign_key "themes", "rooms"
 end

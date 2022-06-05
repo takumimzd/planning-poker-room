@@ -1,8 +1,14 @@
 import createTheme from '@/api/domain/theme/createTheme'
+import { IdType } from '@/types/index'
 
-export const useCreateTheme = () => {
+interface UseCreateThemePropsType {
+  roomId: IdType
+  title: string
+}
+
+export const useCreateTheme = ({ roomId, title }: UseCreateThemePropsType) => {
   const handleCreateTheme = async () => {
-    const data = await createTheme()
+    const data = await createTheme({ roomId, title })
     return data
   }
 
