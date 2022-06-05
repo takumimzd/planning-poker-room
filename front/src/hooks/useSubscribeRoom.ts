@@ -7,6 +7,7 @@ interface UseSubscribeRoomPropsType {
 
 interface ReceivedDataType {
   selected_card: number[]
+  title: string
 }
 
 export const useSubscribeRoom = ({ roomId }: UseSubscribeRoomPropsType) => {
@@ -16,6 +17,8 @@ export const useSubscribeRoom = ({ roomId }: UseSubscribeRoomPropsType) => {
   }
 
   const [selectedCards, setSelectedCards] = useState<number[]>([])
+  const [title, setTitle] = useState('')
+
   const setSubscription = () => {
     const endpoint = 'ws://localhost:3001/cable'
     ActionCable.createConsumer(endpoint).subscriptions.create(
@@ -26,7 +29,8 @@ export const useSubscribeRoom = ({ roomId }: UseSubscribeRoomPropsType) => {
       {
         connected: () => {},
         received: (data: ReceivedDataType) => {
-          setSelectedCards(data.selected_card)
+          if (!!data.selected_card.length) setSelectedCards(data.selected_card)
+          if (!!data.title) setTitle(data.title)
         },
       },
     )
@@ -37,5 +41,6 @@ export const useSubscribeRoom = ({ roomId }: UseSubscribeRoomPropsType) => {
 
   return {
     selectedCards,
+    title,
   }
 }

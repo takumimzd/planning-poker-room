@@ -5,7 +5,10 @@ interface CreateRoomResponseType {
   room_id: number
 }
 const createRoom = async () => {
-  const { data } = await Post<CreateRoomResponseType>('rooms')
+  const postData = {
+    title: 'アイテム名',
+  }
+  const { data } = await Post<CreateRoomResponseType>('rooms', postData)
   return data
 }
 
