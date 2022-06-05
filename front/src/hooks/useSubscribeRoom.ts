@@ -1,31 +1,32 @@
 import { useEffect, useState } from 'react'
-import ActionCable from 'actioncable'
 import { IdType } from 'src/types'
 
 interface UseSubscribeRoomPropsType {
   roomId: IdType
 }
+
+interface ReceivedDataType {
+  selected_card: number[]
+}
+
 export const useSubscribeRoom = ({ roomId }: UseSubscribeRoomPropsType) => {
   let ActionCable = null as any
   if (typeof window !== 'undefined') {
     ActionCable = require('actioncable')
   }
 
-  const [selectedCards, setSelectedCards] = useState<string[]>([])
+  const [selectedCards, setSelectedCards] = useState<number[]>([])
   const setSubscription = () => {
-    const endpoint = 'endpoint'
+    const endpoint = 'ws://localhost:3001/cable'
     ActionCable.createConsumer(endpoint).subscriptions.create(
       {
         channel: 'RoomChannel',
         room_id: `${roomId}`,
       },
       {
-        connected: () => {
-          console.log('コネクト成功')
-        },
-        received: (data: any) => {
-          // railsで定義したbroadcast_messageで定義したメッセージが来る
-          setSelectedCards(data)
+        connected: () => {},
+        received: (data: ReceivedDataType) => {
+          setSelectedCards(data.selected_card)
         },
       },
     )
