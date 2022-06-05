@@ -3,7 +3,7 @@ module Api
     class RoomsController < ApplicationController
       def create
         room = Room.create!
-        render json: { room_id: room.id }, status: :ok
+        render json: { room_id: room.id, status: 200 }, status: :ok
       end
     end
   end

@@ -1,4 +1,4 @@
-import createRoom from '@/api/domain/createRoom'
+import createRoom from '@/api/domain/room/createRoom'
 
 export const useCreateRoom = () => {
   const handleCreateRoom = async () => {
@@ -6,5 +6,5 @@ export const useCreateRoom = () => {
     return data
   }
 
-  return { handleCreateRoom }
+  return { createRoom: handleCreateRoom }
 }
