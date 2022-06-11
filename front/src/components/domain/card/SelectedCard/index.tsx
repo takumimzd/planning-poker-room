@@ -11,6 +11,7 @@ export const SelectedCard = ({ selectedCards }: Props) => {
   const [isOpenCard, setIsOpenCard] = useState(false)
   const average = calculateAverageCount({ counts: selectedCards })
   const handleOpenCardOnClick = () => {
+    if (!selectedCards.length) return null
     setIsOpenCard(true)
   }
 

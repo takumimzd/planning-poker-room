@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import styled from 'styled-components'
 import { IdType } from '@/types/index'
 import { useCreateTheme } from '@/hooks/apiRequest/domain/theme/useCreateTheme'
 import { useSubscribeRoom } from '@/hooks/useSubscribeRoom'
@@ -6,7 +7,7 @@ import { CardList } from '@/components/domain/card/CardList'
 import { MyCard } from '@/components/domain/card/MyCard'
 import { ConfirmButton } from '@/components/domain/card/ConfirmButton'
 import { SelectedCard } from '@/components/domain/card/SelectedCard'
-import styled from 'styled-components'
+import { DecidedCardPullDown } from '@/components/domain/card/DecidedCardPullDown'
 
 interface Props {
   roomId: IdType
@@ -46,6 +47,7 @@ export const RoomTemplate = ({ roomId }: Props) => {
           </Center>
           <Under>
             <SelectedCard selectedCards={selectedCards} />
+            <DecidedCardPullDown />
           </Under>
         </div>
       )

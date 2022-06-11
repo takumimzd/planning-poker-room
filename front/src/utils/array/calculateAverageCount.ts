@@ -2,10 +2,17 @@
 
 interface Props {
   counts: number[]
+  isFloor?: boolean
 }
 
-export const calculateAverageCount = ({ counts }: Props) => {
+export const calculateAverageCount = ({ counts, isFloor = true }: Props) => {
   if (!counts.length) return null
-  const totalCount = counts.reduce((sum, elm) => sum + elm)
-  return totalCount / counts.length
+
+  const average = counts.reduce((sum, elm) => sum + elm) / counts.length
+
+  if (isFloor) {
+    return Math.floor(average)
+  }
+
+  return average
 }
