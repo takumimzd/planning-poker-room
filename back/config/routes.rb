@@ -4,7 +4,7 @@ Rails.application.routes.draw do
     namespace 'v1' do
       resources :rooms, only: %i(show create)
       resources :themes, only: %i(show create update)
-      resources :themes, only: %i(create)
+      resources :cards, only: %i(create)
     end
   end
 end

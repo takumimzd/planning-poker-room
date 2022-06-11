@@ -6,7 +6,8 @@ module Api
         render json: { status: 200 }, status: :ok
 
         channel = "room_channel_#{params[:room_id]}"
-        ActionCable.server.broadcast channel, { selected_card: [1,2,3], title: theme.title }
+        selected_cards = Card.where(theme_id: theme.id).pluck(:count)
+        ActionCable.server.broadcast channel, { selected_cards: selected_cards || [], title: theme.title, theme_id: theme.id }
       end
     end
   end

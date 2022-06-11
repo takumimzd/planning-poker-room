@@ -24,9 +24,9 @@
       "@/constants/*": ["src/constants/*"],
       "@/pages/*": ["src/pages/*"],
       "@/types/*": ["src/types/*"],
-      "@/utilities/*": ["src/utilities/*"],
+      "@/utils/*": ["src/utils/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
-  "exclude": ["node_modules"],
+  "exclude": ["node_modules"]
 }
