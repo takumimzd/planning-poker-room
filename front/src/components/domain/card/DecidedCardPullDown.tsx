@@ -8,7 +8,6 @@ export const DecidedCardPullDown = forwardRef<HTMLDivElement>(({}, ref) => {
 
   const handlePulldownItemOnClick = (card: number) => {
     setIsDisplay(!isDisplay)
-    console.log(card)
   }
   return (
     <PulldownContainer>
@@ -22,7 +21,7 @@ export const DecidedCardPullDown = forwardRef<HTMLDivElement>(({}, ref) => {
         </button>
         <PulldownContent isDisplay={isDisplay}>
           {CARD_CONTENTS.map((content) => (
-            <PulldownItem onClick={() => handlePulldownItemOnClick(content)}>
+            <PulldownItem key={content} onClick={() => handlePulldownItemOnClick(content)}>
               <p>{content}</p>
             </PulldownItem>
           ))}

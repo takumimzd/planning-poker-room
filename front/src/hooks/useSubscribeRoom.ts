@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
-import { IdType } from 'src/types'
+import { IdType } from '@/types/index'
+import useGetTheme from './apiRequest/domain/theme/useGetTheme'
 
 interface UseSubscribeRoomPropsType {
   roomId: IdType
@@ -20,6 +21,11 @@ export const useSubscribeRoom = ({ roomId }: UseSubscribeRoomPropsType) => {
   const [selectedCards, setSelectedCards] = useState<number[]>([])
   const [title, setTitle] = useState('')
   const [themeId, setThemeId] = useState<IdType>('')
+  const [isConnected, setIsConnected] = useState(false)
+
+  if (themeId) {
+    history.pushState('', '', `${roomId}?theme_id=${themeId}`)
+  }
 
   const setSubscription = () => {
     const endpoint = 'ws://localhost:3001/cable'
@@ -29,8 +35,12 @@ export const useSubscribeRoom = ({ roomId }: UseSubscribeRoomPropsType) => {
         room_id: `${roomId}`,
       },
       {
-        connected: () => {},
+        connected: () => {
+          setIsConnected(true)
+        },
         received: (data: ReceivedDataType) => {
+          console.log({ data })
+
           if (!!data.selected_cards.length) setSelectedCards(data.selected_cards)
           if (!!data.title) setTitle(data.title)
           if (!!data.theme_id) setThemeId(data.theme_id)
@@ -43,6 +53,7 @@ export const useSubscribeRoom = ({ roomId }: UseSubscribeRoomPropsType) => {
   }, [])
 
   return {
+    isConnected,
     selectedCards,
     title,
     themeId,

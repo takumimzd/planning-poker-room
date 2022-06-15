@@ -1,12 +1,12 @@
-import { Axios } from "@/api/base/axios"
+import { Axios } from '@/api/base/axios'
 
-const get = async (url: string) => {
+const Get = async <T>(url: string) => {
   try {
-    const response = await Axios.get(url).then(res => res.data)
+    const response: T = await Axios.get(url).then((res) => res.data)
     return response
   } catch (error) {
     throw error
   }
 }
 
-export default get
+export default Get
