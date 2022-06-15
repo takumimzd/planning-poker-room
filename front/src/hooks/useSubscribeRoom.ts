@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react'
 import { IdType } from '@/types/index'
-import useGetTheme from './apiRequest/domain/theme/useGetTheme'
 
 interface UseSubscribeRoomPropsType {
   roomId: IdType
