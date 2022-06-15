@@ -3,11 +3,10 @@ module Api
     class ThemesController < ApplicationController
       def show
         room = Room.find(params[:room_id])
-        theme_id = params[:id]
+        theme = Theme.find(params[:id])
 
         channel = "room_channel_#{room.id}"
-        selected_cards = Card.where(theme_id: theme_id).pluck(:count)
-        theme = Theme.find(theme_id)
+        selected_cards = Card.where(theme_id: params[:id]).pluck(:count)
 
         ActionCable.server.broadcast channel, { selected_cards: selected_cards || [], title: theme.title, theme_id: theme.id }
         render json: { status: 200 }, status: :ok
@@ -20,6 +19,19 @@ module Api
         channel = "room_channel_#{params[:room_id]}"
         selected_cards = Card.where(theme_id: theme.id).pluck(:count)
         ActionCable.server.broadcast channel, { selected_cards: selected_cards || [], title: theme.title, theme_id: theme.id }
+      end
+
+      def destroy_cards
+        room = Room.find(params[:room_id])
+        theme = Theme.find(params[:id])
+
+        cards = Card.where(theme_id: params[:id])
+        cards.delete_all
+
+        channel = "room_channel_#{room.id}"
+
+        ActionCable.server.broadcast channel, { selected_cards: [], title: theme.title, theme_id: theme.id }
+        render json: { status: 200 }, status: :ok
       end
     end
   end

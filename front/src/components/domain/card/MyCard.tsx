@@ -1,7 +1,8 @@
 import { Card } from '@/components/common/Card/Card'
+import { CardType } from '@/types/card'
 
 interface Props {
-  myCard: number | null
+  myCard: CardType
 }
 
 export const MyCard = ({ myCard }: Props) => {

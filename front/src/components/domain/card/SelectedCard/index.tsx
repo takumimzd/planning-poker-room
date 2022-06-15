@@ -5,15 +5,12 @@ import { SelectedCardList } from '@/components/domain/card/SelectedCard/Selected
 
 interface Props {
   selectedCards: number[]
+  isOpenCard: boolean
+  openCardOnClick: () => void
 }
 
-export const SelectedCard = ({ selectedCards }: Props) => {
-  const [isOpenCard, setIsOpenCard] = useState(false)
+export const SelectedCard = ({ selectedCards, isOpenCard, openCardOnClick }: Props) => {
   const average = calculateAverageCount({ counts: selectedCards })
-  const handleOpenCardOnClick = () => {
-    if (!selectedCards.length) return null
-    setIsOpenCard(true)
-  }
 
   return (
     <Wrapper>
@@ -24,7 +21,7 @@ export const SelectedCard = ({ selectedCards }: Props) => {
         </CardListContainer>
       ) : (
         <div>
-          <button onClick={handleOpenCardOnClick}>OpenCard</button>
+          <button onClick={openCardOnClick}>OpenCard</button>
           {selectedCards.length}
         </div>
       )}
