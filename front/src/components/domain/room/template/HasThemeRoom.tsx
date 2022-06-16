@@ -10,6 +10,7 @@ import useGetTheme from '@/hooks/apiRequest/domain/theme/useGetTheme'
 import { ResetCardButton } from '../../card/ResetCardButton'
 import { useDeleteCardsByTheme } from '@/hooks/apiRequest/domain/theme/useDeleteCardsByTheme'
 import { CardType } from '@/types/card'
+import { copyToClipBoard } from '@/utils/copyToClipBoard'
 
 interface Props {
   roomId: IdType
@@ -34,9 +35,14 @@ export const HasThemeRoom = ({ roomId, title, themeId, selectedCards }: Props) =
     setMyCard(count)
   }
 
+  const handleCopyButtonOnClick = () => {
+    copyToClipBoard(window.location.href)
+  }
+
   return (
     <div>
       <Top>
+        <button onClick={handleCopyButtonOnClick}>copy room url</button>
         <CardList cardOnClick={handleCardOnClick} />
       </Top>
       <Center>
