@@ -16,7 +16,6 @@ const useGetRoom = ({ roomId }: UseGetRoomParamsType) => {
   })
 
   const { data } = getRoomMapper(resData)
-
   return {
     isError: !!error,
     data,

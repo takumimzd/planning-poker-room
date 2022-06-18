@@ -5,7 +5,7 @@ export const getRoomMapper = (res: GetRoomResponseType | undefined) => {
 
   return {
     data: {
-      selectedCards: res.cards.map((card) => card.count) || null,
+      totalCount: res.room.total_count,
       themes: res.themes || null,
     },
   }

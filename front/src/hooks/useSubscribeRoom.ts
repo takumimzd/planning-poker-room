@@ -45,6 +45,9 @@ export const useSubscribeRoom = ({ roomId }: UseSubscribeRoomPropsType) => {
           setSelectedCards(data.selected_cards)
           setTitle(data.title)
           setThemeId(data.theme_id)
+          if (!data.theme_id) {
+            history.pushState('', '', `${roomId}`)
+          }
         },
       },
     )
