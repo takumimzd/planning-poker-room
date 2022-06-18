@@ -10,7 +10,8 @@ import useGetTheme from '@/hooks/apiRequest/domain/theme/useGetTheme'
 import { ResetCardButton } from '../../card/ResetCardButton'
 import { useDeleteCardsByTheme } from '@/hooks/apiRequest/domain/theme/useDeleteCardsByTheme'
 import { CardType } from '@/types/card'
-import { copyToClipBoard } from '@/utils/copyToClipBoard'
+import { copyToClipBoard } from '@/utils/copyToClipboard'
+import { DecideCountButton } from '../../theme/decideCountButton'
 
 interface Props {
   roomId: IdType
@@ -39,6 +40,11 @@ export const HasThemeRoom = ({ roomId, title, themeId, selectedCards }: Props) =
     copyToClipBoard(window.location.href)
   }
 
+  const handleResetCardOnClick = () => {
+    deleteCardsByTheme()
+    setIsOpenCard(false)
+  }
+
   return (
     <div>
       <Top>
@@ -56,8 +62,9 @@ export const HasThemeRoom = ({ roomId, title, themeId, selectedCards }: Props) =
           isOpenCard={isOpenCard}
           openCardOnClick={handleOpenCardOnClick}
         />
-        {isOpenCard && <ResetCardButton onClick={deleteCardsByTheme} />}
+        {isOpenCard && <ResetCardButton onClick={handleResetCardOnClick} />}
         <DecidedCardPullDown decidedCard={decidedCard} setDecidedCard={setDecidedCard} />
+        <DecideCountButton roomId={roomId} themeId={themeId} decidedCard={decidedCard} />
       </Under>
     </div>
   )

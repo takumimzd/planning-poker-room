@@ -21,6 +21,14 @@ module Api
         ActionCable.server.broadcast channel, { selected_cards: selected_cards || [], title: theme.title, theme_id: theme.id }
       end
 
+      def update
+        theme = Theme.find(params[:id])
+        theme.update!(count: params[:count])
+        channel = "room_channel_#{params[:room_id]}"
+        render json: { status: 200 }, status: :ok
+        ActionCable.server.broadcast channel, { selected_cards: [], title: "", theme_id: "" }
+      end
+
       def destroy_cards
         room = Room.find(params[:room_id])
         theme = Theme.find(params[:id])

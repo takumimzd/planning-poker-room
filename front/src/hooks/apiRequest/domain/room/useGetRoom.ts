@@ -2,7 +2,7 @@ import getRoom from '@/api/domain/room/getRoom'
 import useFetch from '../../common/useFetch'
 import { IdType } from '@/types/index'
 import { GetRoomResponseType } from '@/types/api/room'
-import { getRoomMapper } from '@/api/mapper/room/getRoomMapper'
+import { getRoomMapper } from 'src/mapper/room/getRoomMapper'
 
 interface UseGetRoomParamsType {
   roomId: IdType

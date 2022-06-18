@@ -10,12 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_06_15_135055) do
+ActiveRecord::Schema[7.0].define(version: 2022_06_18_123259) do
   create_table "cards", force: :cascade do |t|
-    t.integer "count"
+    t.float "count"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "theme_id"
+    t.string "theme_id"
     t.index ["theme_id"], name: "index_cards_on_theme_id"
   end
 
@@ -26,7 +26,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_15_135055) do
 
   create_table "themes", id: :string, force: :cascade do |t|
     t.string "title"
-    t.integer "count"
+    t.float "count"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "room_id"
