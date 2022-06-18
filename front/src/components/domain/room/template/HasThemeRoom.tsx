@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import styled from 'styled-components'
 import { IdType } from '@/types/index'
 import { CardList } from '@/components/domain/card/CardList'
@@ -11,7 +11,7 @@ import { ResetCardButton } from '../../card/ResetCardButton'
 import { useDeleteCardsByTheme } from '@/hooks/apiRequest/domain/theme/useDeleteCardsByTheme'
 import { CardType } from '@/types/card'
 import { copyToClipBoard } from '@/utils/copyToClipboard'
-import { DecideCountButton } from '../../theme/decideCountButton'
+import { DecideCountButton } from '@/components/domain/theme/DecideCountButton'
 
 interface Props {
   roomId: IdType
@@ -36,10 +36,6 @@ export const HasThemeRoom = ({ roomId, title, themeId, selectedCards }: Props) =
     setMyCard(count)
   }
 
-  const handleCopyButtonOnClick = () => {
-    copyToClipBoard(window.location.href)
-  }
-
   const handleResetCardOnClick = () => {
     deleteCardsByTheme()
     setIsOpenCard(false)
@@ -48,7 +44,6 @@ export const HasThemeRoom = ({ roomId, title, themeId, selectedCards }: Props) =
   return (
     <div>
       <Top>
-        <button onClick={handleCopyButtonOnClick}>copy room url</button>
         <CardList cardOnClick={handleCardOnClick} />
       </Top>
       <Center>

@@ -3,11 +3,10 @@ import { IdType } from '@/types/index'
 
 interface UseCreateThemePropsType {
   roomId: IdType
-  title: string
 }
 
-export const useCreateTheme = ({ roomId, title }: UseCreateThemePropsType) => {
-  const handleCreateTheme = async () => {
+export const useCreateTheme = ({ roomId }: UseCreateThemePropsType) => {
+  const handleCreateTheme = async (title: string) => {
     const data = await createTheme({ roomId, title })
     return data
   }
