@@ -4,15 +4,15 @@ import { useCreateTheme } from '@/hooks/apiRequest/domain/theme/useCreateTheme'
 import { useSubscribeRoom } from '@/hooks/useSubscribeRoom'
 import { HasThemeRoom } from './HasThemeRoom'
 import { getUrlParams } from '@/utils/getUrlParams'
-import useGetRoom from '@/hooks/apiRequest/domain/room/useGetRoom'
 
 interface Props {
   roomId: IdType
 }
 
 export const NoThemeRoom = ({ roomId }: Props) => {
-  const { isConnected, selectedCards, title } = useSubscribeRoom({ roomId })
-  const { data } = useGetRoom({ roomId })
+  const { isConnected, selectedCards, title, totalCount, handleResetState } = useSubscribeRoom({
+    roomId,
+  })
   const [inputTitle, setInputTitle] = useState('')
   const { createTheme } = useCreateTheme({ roomId })
   const themeId = getUrlParams('theme_id')
@@ -33,12 +33,13 @@ export const NoThemeRoom = ({ roomId }: Props) => {
           title={title}
           selectedCards={selectedCards}
           themeId={themeId}
+          handleResetState={handleResetState}
         />
       ) : (
         <div>
           <input onChange={(e) => setInputTitle(e.target.value)} />
           <button onClick={handleCreateTitleButtonOnClick}>create title</button>
-          {data && data.totalCount && <div>totalCount: {data.totalCount}</div>}
+          {<div>totalCount: {totalCount}</div>}
         </div>
       )}
     </div>

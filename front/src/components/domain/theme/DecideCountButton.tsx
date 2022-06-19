@@ -7,14 +7,16 @@ interface Props {
   roomId: IdType
   themeId: IdType
   decidedCard: CardType
+  handleResetState: () => void
 }
 
-export const DecideCountButton = ({ roomId, themeId, decidedCard }: Props) => {
+export const DecideCountButton = ({ roomId, themeId, decidedCard, handleResetState }: Props) => {
   const router = useRouter()
   const { updateThemeCount } = useUpdateThemeCount({ roomId, themeId, count: decidedCard })
   const handleOnClick = () => {
     updateThemeCount()
+    handleResetState()
     router.push(`/rooms/${roomId}`)
   }
-  return <button onClick={handleOnClick}>confirm card</button>
+  return <button onClick={handleOnClick}>Next Planning</button>
 }

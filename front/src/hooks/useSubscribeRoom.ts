@@ -9,6 +9,7 @@ interface ReceivedDataType {
   selected_cards: number[]
   title: string
   theme_id: IdType
+  total_count: number
 }
 
 export const useSubscribeRoom = ({ roomId }: UseSubscribeRoomPropsType) => {
@@ -21,12 +22,18 @@ export const useSubscribeRoom = ({ roomId }: UseSubscribeRoomPropsType) => {
   const [title, setTitle] = useState('')
   const [themeId, setThemeId] = useState<IdType>('')
   const [isConnected, setIsConnected] = useState(false)
-
+  const [totalCount, setTotalCount] = useState(0)
+  const handleResetState = () => {
+    setThemeId('')
+    setTitle('')
+  }
   const channelRef = useRef<any>(null)
   const cableRef = useRef<any>(null)
 
   if (themeId) {
     history.pushState('', '', `${roomId}?theme_id=${themeId}`)
+  } else {
+    history.pushState('', '', `${roomId}`)
   }
 
   const setSubscription = () => {
@@ -36,6 +43,7 @@ export const useSubscribeRoom = ({ roomId }: UseSubscribeRoomPropsType) => {
       {
         channel: 'RoomChannel',
         room_id: `${roomId}`,
+        theme_id: `${themeId}`,
       },
       {
         connected: () => {
@@ -45,8 +53,11 @@ export const useSubscribeRoom = ({ roomId }: UseSubscribeRoomPropsType) => {
           setSelectedCards(data.selected_cards)
           setTitle(data.title)
           setThemeId(data.theme_id)
+          setTotalCount(data.total_count)
           if (!data.theme_id) {
             history.pushState('', '', `${roomId}`)
+          } else {
+            history.pushState('', '', `${roomId}?theme_id=${data.theme_id}`)
           }
         },
       },
@@ -61,12 +72,12 @@ export const useSubscribeRoom = ({ roomId }: UseSubscribeRoomPropsType) => {
     }
   }, [])
 
-  console.log(selectedCards)
-
   return {
     isConnected,
     selectedCards,
     title,
     themeId,
+    totalCount,
+    handleResetState,
   }
 }
