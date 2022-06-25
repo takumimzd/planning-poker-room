@@ -1,4 +1,5 @@
 import { COLORS } from '@/constants/Colors'
+import { SHADOW } from '@/constants/Shadow'
 import { createGlobalStyle } from 'styled-components'
 
 export const GlobalStyle = createGlobalStyle`
@@ -7,5 +8,9 @@ export const GlobalStyle = createGlobalStyle`
     padding: 0;
     font-family: sans-serif;
     background-color: ${COLORS.BACKGROUND_COLOR};
+  }
+  p {
+    margin: 0;
+    text-shadow: ${SHADOW.MAIN};
   }
 `
