@@ -1,6 +1,6 @@
 import { COLORS } from '@/constants/Colors'
 import { SHADOW } from '@/constants/Shadow'
-import { createGlobalStyle } from 'styled-components'
+import styled, { createGlobalStyle } from 'styled-components'
 
 export const GlobalStyle = createGlobalStyle`
   body {
@@ -13,4 +13,17 @@ export const GlobalStyle = createGlobalStyle`
     margin: 0;
     text-shadow: ${SHADOW.MAIN};
   }
+  input {
+    box-shadow: ${SHADOW.MAIN};
+    border: none;
+  }
+  button{
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    padding: 0;
+    appearance: none;
+    box-shadow: ${SHADOW.MAIN};
+}
 `

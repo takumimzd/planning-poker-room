@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { NoThemeRoom } from '@/components/domain/room/template/NoThemeRoom'
+import { NoThemeRoom } from '@/components/domain/template/NoThemeRoom'
 import { Header } from '@/components/layout/Header'
 import { useGetQuery } from '@/hooks/useGetQuery'
 

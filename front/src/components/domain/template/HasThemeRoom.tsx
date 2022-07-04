@@ -1,16 +1,16 @@
 import { memo, useState } from 'react'
 import styled from 'styled-components'
 import { IdType } from '@/types/index'
-import { CardList } from '@/components/domain/card/CardList'
-import { MyCard } from '@/components/domain/card/MyCard'
-import { ConfirmButton } from '@/components/domain/card/ConfirmButton'
-import { SelectedCard } from '@/components/domain/card/SelectedCard'
-import { DecidedCardPullDown } from '@/components/domain/card/DecidedCardPullDown'
+import { CardList } from '@/components/domain/CardList'
+import { MyCard } from '@/components/domain/MyCard'
+import { ConfirmButton } from '@/components/domain/ConfirmButton'
+import { SelectedCard } from '@/components/domain/SelectedCard'
+import { DecidedCardPullDown } from '@/components/domain/DecidedCardPullDown'
 import useGetTheme from '@/hooks/apiRequest/domain/theme/useGetTheme'
-import { ResetCardButton } from '../../card/ResetCardButton'
+import { ResetCardButton } from '../ResetCardButton'
 import { useDeleteCardsByTheme } from '@/hooks/apiRequest/domain/theme/useDeleteCardsByTheme'
 import { CardType } from '@/types/card'
-import { DecideCountButton } from '@/components/domain/theme/DecideCountButton'
+import { DecideCountButton } from '@/components/domain/DecideCountButton'
 
 interface Props {
   roomId: IdType

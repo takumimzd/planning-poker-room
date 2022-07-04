@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import styled from 'styled-components'
 import { calculateAverageCount } from '@/utils/array/calculateAverageCount'
-import { SelectedCardList } from '@/components/domain/card/SelectedCard/SelectedCardList'
+import { SelectedCardList } from '@/components/domain/SelectedCard/SelectedCardList'
 
 interface Props {
   selectedCards: number[]

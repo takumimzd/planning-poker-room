@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
@@ -7,7 +8,7 @@ import styled from 'styled-components'
 import { PrimaryButton } from '@/components/common/Button/PrimaryButton'
 import { SHADOW } from '@/constants/Shadow'
 import { Input } from '@/components/common/Form/Input'
-import { useState } from 'react'
+import { Paragraph } from 'src/styles/standardStyles'
 
 const Home: NextPage = () => {
   const router = useRouter()
@@ -38,8 +39,10 @@ const Home: NextPage = () => {
       <Wrapper>
         <PrimaryButton text='Create New Room' onClick={handleCreateNewRoomOnClick} />
       </Wrapper>
-      <P>OR</P>
-      <P>Please Enter The Room Number </P>
+      <OR>OR</OR>
+      <ParagraphWrapper>
+        <Paragraph>Please Enter The Room Number </Paragraph>
+      </ParagraphWrapper>
       <InputWrapper>
         <Input onChange={(event) => handleEnterRoomOnChange(event.target.value)} />
       </InputWrapper>
@@ -62,12 +65,19 @@ const Wrapper = styled.div`
   margin-top: 36px;
 `
 
-const P = styled.p`
+const OR = styled.p`
   display: flex;
   justify-content: center;
   margin-top: 24px;
   font-size: 16px;
   text-shadow: ${SHADOW.MAIN};
+`
+
+const ParagraphWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  margin-top: 24px;
+  padding-bottom: 8px;
 `
 
 const InputWrapper = styled.div`

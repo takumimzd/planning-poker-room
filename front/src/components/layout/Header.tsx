@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { SHADOW } from '@/constants/Shadow'
 import { copyToClipBoard } from '@/utils/copyToClipboard'
 import { PrimaryButton } from '@/components/common/Button/PrimaryButton'
+import Link from 'next/link'
 
 export const Header = () => {
   const router = useRouter()
@@ -14,7 +15,9 @@ export const Header = () => {
 
   return (
     <Wrapper>
-      <Logo>Planning Poker Room</Logo>
+      <Link href={'/'}>
+        <Logo>Planning Poker Room</Logo>
+      </Link>
       {roomId && (
         <>
           <p>Room No : {roomId}</p>
@@ -38,6 +41,7 @@ const Logo = styled.p`
   font-size: 24px;
   font-weight: bold;
   text-shadow: ${SHADOW.MAIN};
+  cursor: pointer;
 `
 
 const ButtonWrapper = styled.div`

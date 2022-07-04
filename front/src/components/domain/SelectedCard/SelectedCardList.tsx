@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import { filterDuplicateValue } from '@/utils/array/filterDuplicateValue'
 import { calculateDuplicateCount } from '@/utils/array/calculateDuplicateCount'
-import { SelectedCardItem } from '@/components/domain/card/SelectedCard/SelectedCardItem'
+import { SelectedCardItem } from '@/components/domain/SelectedCard/SelectedCardItem'
 
 interface Props {
   selectedCards: number[]
