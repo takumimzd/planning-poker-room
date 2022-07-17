@@ -15,7 +15,14 @@ interface Props {
 }
 
 export const NoThemeRoom = ({ roomId }: Props) => {
-  const { isConnected, selectedCards, title, totalCount, handleResetState } = useSubscribeRoom({
+  const {
+    isConnected,
+    selectedCards,
+    title,
+    totalCount,
+    handleResetState,
+    handleResetSelectedCard,
+  } = useSubscribeRoom({
     roomId,
   })
   const [inputTitle, setInputTitle] = useState('')
@@ -39,6 +46,7 @@ export const NoThemeRoom = ({ roomId }: Props) => {
           selectedCards={selectedCards}
           themeId={themeId}
           handleResetState={handleResetState}
+          handleResetSelectedCard={handleResetSelectedCard}
         />
       ) : (
         <div>

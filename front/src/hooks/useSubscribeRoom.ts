@@ -29,6 +29,10 @@ export const useSubscribeRoom = ({ roomId }: UseSubscribeRoomPropsType) => {
     setThemeId('')
     setTitle('')
   }
+
+  const handleResetSelectedCard = () => {
+    setSelectedCards([])
+  }
   const channelRef = useRef<any>(null)
   const cableRef = useRef<any>(null)
 
@@ -81,5 +85,6 @@ export const useSubscribeRoom = ({ roomId }: UseSubscribeRoomPropsType) => {
     themeId,
     totalCount,
     handleResetState,
+    handleResetSelectedCard,
   }
 }

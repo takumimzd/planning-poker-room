@@ -19,10 +19,11 @@ interface Props {
   title: string
   selectedCards: number[]
   handleResetState: () => void
+  handleResetSelectedCard: () => void
 }
 
 export const HasThemeRoom = memo(
-  ({ roomId, title, themeId, selectedCards, handleResetState }: Props) => {
+  ({ roomId, title, themeId, selectedCards, handleResetState, handleResetSelectedCard }: Props) => {
     const [isOpenCard, setIsOpenCard] = useState(false)
     const [decidedCard, setDecidedCard] = useState<CardType>(null)
     const { deleteCardsByTheme } = useDeleteCardsByTheme({ roomId, themeId })
@@ -41,6 +42,7 @@ export const HasThemeRoom = memo(
     const handleResetCardOnClick = () => {
       deleteCardsByTheme()
       setIsOpenCard(false)
+      handleResetSelectedCard()
     }
 
     return (

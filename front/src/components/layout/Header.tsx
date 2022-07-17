@@ -2,9 +2,7 @@ import { useRouter } from 'next/router'
 import styled from 'styled-components'
 import { SHADOW } from '@/constants/Shadow'
 import { copyToClipBoard } from '@/utils/copyToClipboard'
-import { PrimaryButton } from '@/components/common/Button/PrimaryButton'
 import Link from 'next/link'
-import { SecondaryButton } from '../common/Button/SecondaryButton'
 
 export const Header = () => {
   const router = useRouter()
@@ -22,12 +20,6 @@ export const Header = () => {
       {roomId && (
         <>
           <p>Room No : {roomId}</p>
-          <ButtonWrapper>
-            <SecondaryButton
-              text='Copy Room Url'
-              onClick={handleCopyButtonOnClick}
-            ></SecondaryButton>
-          </ButtonWrapper>
         </>
       )}
     </Wrapper>
@@ -46,8 +38,4 @@ const Logo = styled.p`
   font-weight: bold;
   text-shadow: ${SHADOW.MAIN};
   cursor: pointer;
-`
-
-const ButtonWrapper = styled.div`
-  margin-left: 36px;
 `
