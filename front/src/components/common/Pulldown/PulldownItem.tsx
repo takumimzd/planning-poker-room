@@ -35,7 +35,7 @@ export const PulldownItem = ({
   selected,
   prefix,
   suffix,
-  width = 200,
+  width = 160,
   ...props
 }: PulldownProps) => (
   <Button {...props} width={width}>
@@ -57,6 +57,7 @@ const ResetButton = styled.button`
 const Button = styled(ResetButton)<{ selected?: boolean; width: number | string }>`
   cursor: pointer;
   display: flex;
+  justify-content: center;
   align-items: center;
   padding: 8px;
   width: ${({ width }) => (typeof width === 'number' ? `${width}px` : width)};

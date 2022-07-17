@@ -2,6 +2,7 @@ import { Dispatch, SetStateAction } from 'react'
 import { IdType } from '@/types/index'
 import { useCreateCard } from '@/hooks/apiRequest/domain/card/useCreateCard'
 import { CardType } from '@/types/card'
+import { PrimaryButton } from '../common/Button/PrimaryButton'
 
 interface Props {
   roomId: IdType
@@ -18,5 +19,5 @@ export const ConfirmButton = ({ roomId, themeId, myCard, setMyCard }: Props) => 
     createCard({ cardCount: card })
   }
 
-  return <button onClick={() => handleConfirmOnClick(myCard)}>confirm card</button>
+  return <PrimaryButton onClick={() => handleConfirmOnClick(myCard)} text='Confirm' />
 }

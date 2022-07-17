@@ -30,6 +30,8 @@ const Ul = styled.ul`
 `
 const Li = styled.li`
   list-style: none;
-  width: 120px;
-  height: 130px;
+  margin-left: 8px;
+  margin-right: 8px;
+  width: 80px;
+  height: 115px;
 `

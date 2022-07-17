@@ -11,6 +11,7 @@ import { ResetCardButton } from '../ResetCardButton'
 import { useDeleteCardsByTheme } from '@/hooks/apiRequest/domain/theme/useDeleteCardsByTheme'
 import { CardType } from '@/types/card'
 import { DecideCountButton } from '@/components/domain/DecideCountButton'
+import { Center, FlexBox } from 'src/styles/standardStyles'
 
 interface Props {
   roomId: IdType
@@ -47,33 +48,100 @@ export const HasThemeRoom = memo(
         <Top>
           <CardList cardOnClick={handleCardOnClick} />
         </Top>
-        <Center>
-          <h1>{title}</h1>
-          <MyCard myCard={myCard} />
-          <ConfirmButton roomId={roomId} themeId={themeId} myCard={myCard} setMyCard={setMyCard} />
-        </Center>
+        <TitleContainer>
+          <Title>{title}</Title>
+        </TitleContainer>
+        <CenterWapper>
+          <Center>
+            <FlexBox>
+              <div>
+                <ParagraphWrapper>
+                  {!myCard ? (
+                    <Paragraph>Please Choose Card</Paragraph>
+                  ) : (
+                    <Paragraph>Your Selected Card</Paragraph>
+                  )}
+                </ParagraphWrapper>
+                <MyCard myCard={myCard} />
+              </div>
+              <ConfirmButtonContainer>
+                <ConfirmButton
+                  roomId={roomId}
+                  themeId={themeId}
+                  myCard={myCard}
+                  setMyCard={setMyCard}
+                />
+              </ConfirmButtonContainer>
+            </FlexBox>
+          </Center>
+        </CenterWapper>
         <Under>
-          <SelectedCard
-            selectedCards={selectedCards}
-            isOpenCard={isOpenCard}
-            openCardOnClick={handleOpenCardOnClick}
-          />
-          {isOpenCard && <ResetCardButton onClick={handleResetCardOnClick} />}
-          <DecidedCardPullDown decidedCard={decidedCard} setDecidedCard={setDecidedCard} />
-          <DecideCountButton
-            roomId={roomId}
-            themeId={themeId}
-            decidedCard={decidedCard}
-            handleResetState={handleResetState}
-          />
+          <div>
+            <SelectedCard
+              selectedCards={selectedCards}
+              isOpenCard={isOpenCard}
+              openCardOnClick={handleOpenCardOnClick}
+            />
+          </div>
+          <FlexBox>
+            {isOpenCard && (
+              <ResetCardButtonWrapper>
+                <ResetCardButton onClick={handleResetCardOnClick} />
+              </ResetCardButtonWrapper>
+            )}
+            <DecidedCardPullDown decidedCard={decidedCard} setDecidedCard={setDecidedCard} />
+            <DecideCountButton
+              roomId={roomId}
+              themeId={themeId}
+              decidedCard={decidedCard}
+              handleResetState={handleResetState}
+            />
+          </FlexBox>
         </Under>
       </div>
     )
   },
 )
 
-const Top = styled.div``
-const Center = styled.div`
+const Top = styled.div`
   display: flex;
+  justify-content: center;
 `
-const Under = styled.div``
+
+const CenterWapper = styled.div`
+  top: -24px;
+  position: relative;
+`
+const Under = styled.div`
+  display: flex;
+  justify-content: space-between;
+  padding-left: 24px;
+  margin-top: 24px;
+`
+
+const ConfirmButtonContainer = styled.div`
+  display: flex;
+  align-items: flex-end;
+`
+
+const ResetCardButtonWrapper = styled.div`
+  margin-right: 40px;
+`
+
+const ParagraphWrapper = styled.div`
+  padding-bottom: 16px;
+`
+const Paragraph = styled.p`
+  font-weight: bold;
+`
+
+const Title = styled.p`
+  padding-left: 24px;
+  font-weight: bold;
+  font-size: 20px;
+`
+
+const TitleContainer = styled.div`
+  word-wrap: break-word;
+  width: 500px;
+`

@@ -1,4 +1,4 @@
-import { COLORS } from '@/constants/Colors'
+import { THEME } from '@/constants/Colors'
 import { SHADOW } from '@/constants/Shadow'
 import styled from 'styled-components'
 
@@ -9,7 +9,7 @@ export const Input = ({ ...props }: InputProps) => {
 }
 
 const StyledInput = styled.input`
-  border: 1px solid ${COLORS.BORDER_COLOR.MAIN};
+  border: 1px solid ${THEME.BORDER_COLOR.MAIN};
   border-radius: 4px;
   padding: 8px 16px;
   width: 300px;

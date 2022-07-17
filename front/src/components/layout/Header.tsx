@@ -4,6 +4,7 @@ import { SHADOW } from '@/constants/Shadow'
 import { copyToClipBoard } from '@/utils/copyToClipboard'
 import { PrimaryButton } from '@/components/common/Button/PrimaryButton'
 import Link from 'next/link'
+import { SecondaryButton } from '../common/Button/SecondaryButton'
 
 export const Header = () => {
   const router = useRouter()
@@ -22,7 +23,10 @@ export const Header = () => {
         <>
           <p>Room No : {roomId}</p>
           <ButtonWrapper>
-            <PrimaryButton text='Copy Room Url' onClick={handleCopyButtonOnClick}></PrimaryButton>
+            <SecondaryButton
+              text='Copy Room Url'
+              onClick={handleCopyButtonOnClick}
+            ></SecondaryButton>
           </ButtonWrapper>
         </>
       )}

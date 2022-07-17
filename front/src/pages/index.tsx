@@ -36,9 +36,9 @@ const Home: NextPage = () => {
         <link rel='icon' href='/favicon.ico' />
       </Head>
       <Header />
-      <Wrapper>
+      <CreateButtonWrapper>
         <PrimaryButton text='Create New Room' onClick={handleCreateNewRoomOnClick} />
-      </Wrapper>
+      </CreateButtonWrapper>
       <OR>OR</OR>
       <ParagraphWrapper>
         <Paragraph>Please Enter The Room Number </Paragraph>
@@ -62,7 +62,13 @@ export default Home
 const Wrapper = styled.div`
   display: flex;
   justify-content: center;
-  margin-top: 36px;
+  margin-top: 32px;
+`
+
+const CreateButtonWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  margin-top: 64px;
 `
 
 const OR = styled.p`

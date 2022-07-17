@@ -1,6 +1,15 @@
 export const COLORS = {
-  BACKGROUND_COLOR: '#fffcef',
-  BORDER_COLOR: {
-    MAIN: '#000000',
+  YELLOW: {
+    1: '#fffcef',
   },
+  WHITE: '#FFFF',
+  BLACK: '#000000',
+}
+
+export const THEME = {
+  BORDER_COLOR: {
+    MAIN: `${COLORS.BLACK}`,
+  },
+  BACKGROUND_COLOR: `${COLORS.YELLOW[1]}`,
+  CARD_BACKGROUND_COLOR: `${COLORS.WHITE}`,
 }

@@ -23,6 +23,8 @@ const Ul = styled.ul`
 `
 const Li = styled.li`
   list-style: none;
-  width: 120px;
-  height: 130px;
+  min-width: 80px;
+  min-height: 110px;
+  margin-left: 8px;
+  margin-right: 8px;
 `

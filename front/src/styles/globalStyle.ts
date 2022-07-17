@@ -1,13 +1,13 @@
-import { COLORS } from '@/constants/Colors'
+import { THEME } from '@/constants/Colors'
 import { SHADOW } from '@/constants/Shadow'
-import styled, { createGlobalStyle } from 'styled-components'
+import { createGlobalStyle } from 'styled-components'
 
 export const GlobalStyle = createGlobalStyle`
   body {
     margin: 0;
     padding: 0;
     font-family: sans-serif;
-    background-color: ${COLORS.BACKGROUND_COLOR};
+    background-color: ${THEME.BACKGROUND_COLOR};
   }
   p {
     margin: 0;

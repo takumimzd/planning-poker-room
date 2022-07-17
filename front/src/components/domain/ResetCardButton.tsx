@@ -1,7 +1,18 @@
+import styled from 'styled-components'
+import { SecondaryButton } from '../common/Button/SecondaryButton'
+
 interface Props {
   onClick: () => void
 }
 
 export const ResetCardButton = ({ onClick }: Props) => {
-  return <button onClick={onClick}>reset planning</button>
+  return (
+    <ButtonWrapper>
+      <SecondaryButton onClick={onClick} text='Reset Planning' />
+    </ButtonWrapper>
+  )
 }
+
+const ButtonWrapper = styled.div`
+  width: 160px;
+`

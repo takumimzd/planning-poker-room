@@ -22,7 +22,7 @@ export const SelectedCardItem = ({
   return (
     <Wrapper>
       <Card>{filteredCard}</Card>
-      <p>{duplicateCount}</p>
+      <P>×{duplicateCount}</P>
     </Wrapper>
   )
 }
@@ -30,4 +30,10 @@ export const SelectedCardItem = ({
 const Wrapper = styled.div`
   width: 100%;
   height: 100%;
+`
+
+const P = styled.p`
+  display: flex;
+  justify-content: center;
+  padding-top: 8px;
 `

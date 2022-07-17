@@ -13,6 +13,7 @@ export const PulldownContent = ({ children, isDisplay }: Props) => (
 )
 
 const PulldownContentsWrapper = styled.div`
+  margin-top: 4px;
   position: absolute;
   z-index: 1;
   display: none;

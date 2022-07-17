@@ -2,6 +2,8 @@ import { IdType } from '@/types/index'
 import { useRouter } from 'next/router'
 import { CardType } from '@/types/card'
 import { useUpdateThemeCount } from '@/hooks/apiRequest/domain/theme/useUpdateThemeCount'
+import { PrimaryButton } from '../common/Button/PrimaryButton'
+import styled from 'styled-components'
 
 interface Props {
   roomId: IdType
@@ -18,5 +20,14 @@ export const DecideCountButton = ({ roomId, themeId, decidedCard, handleResetSta
     handleResetState()
     router.push(`/rooms/${roomId}`)
   }
-  return <button onClick={handleOnClick}>Next Planning</button>
+  return (
+    <Wrapper>
+      <PrimaryButton onClick={handleOnClick} text='Next Planning' />
+    </Wrapper>
+  )
 }
+
+const Wrapper = styled.div`
+  width: 200px;
+  margin-right: 240px;
+`

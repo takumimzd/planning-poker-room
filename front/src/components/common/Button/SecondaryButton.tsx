@@ -8,7 +8,7 @@ interface Props {
   text: string
 }
 
-export const PrimaryButton = ({ text, ...props }: ButtonProps) => {
+export const SecondaryButton = ({ text, ...props }: ButtonProps) => {
   return (
     <Button {...props}>
       <Text>{text}</Text>
@@ -17,13 +17,14 @@ export const PrimaryButton = ({ text, ...props }: ButtonProps) => {
 }
 
 const Button = styled.button`
+  width: 100%;
   cursor: pointer;
   border-radius: 4px;
   padding: 8px 12px;
   font-size: 16px;
   min-width: 160px;
   text-shadow: ${SHADOW.MAIN};
-  background-color: #ffee55;
+  background-color: #fffce3;
   &:disabled {
     cursor: not-allowed;
     opacity: 0.8;

@@ -9,3 +9,7 @@ export const Center = styled.div`
   display: flex;
   justify-content: center;
 `
+
+export const FlexBox = styled.div`
+  display: flex;
+`

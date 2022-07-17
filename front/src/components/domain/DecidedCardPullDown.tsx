@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { Pulldown, PulldownContent, PulldownItem } from '@/components/common/Pulldown'
 import { CARD_CONTENTS } from '@/constants/Card'
 import { CardType } from '@/types/card'
+import { SecondaryButton } from '../common/Button/SecondaryButton'
 
 interface Props {
   decidedCard: CardType
@@ -19,13 +20,14 @@ export const DecidedCardPullDown = forwardRef<HTMLDivElement, Props>(
     return (
       <PulldownContainer>
         <Pulldown ref={ref}>
-          <button
-            onClick={() => {
-              setIsDisplay(!isDisplay)
-            }}
-          >
-            {decidedCard !== null ? decidedCard : 'Decided Point'}
-          </button>
+          <ButtonWrapper>
+            <SecondaryButton
+              onClick={() => {
+                setIsDisplay(!isDisplay)
+              }}
+              text={decidedCard !== null ? String(decidedCard) : 'Decided Point'}
+            />
+          </ButtonWrapper>
           <PulldownContent isDisplay={isDisplay}>
             {CARD_CONTENTS.map((content) => (
               <PulldownItem key={content} onClick={() => handlePulldownItemOnClick(content)}>
@@ -41,4 +43,9 @@ export const DecidedCardPullDown = forwardRef<HTMLDivElement, Props>(
 
 const PulldownContainer = styled.div`
   height: 400px;
+  margin-right: 40px;
+`
+
+const ButtonWrapper = styled.div`
+  width: 160px;
 `
