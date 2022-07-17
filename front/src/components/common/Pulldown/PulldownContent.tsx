@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { SHADOW } from '@/constants/Shadow'
 
 interface Props {
   children: React.ReactNode

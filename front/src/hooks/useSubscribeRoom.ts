@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { IdType } from '@/types/index'
+import { getUrlParams } from '@/utils/getUrlParams'
 
 interface UseSubscribeRoomPropsType {
   roomId: IdType
@@ -13,6 +14,7 @@ interface ReceivedDataType {
 }
 
 export const useSubscribeRoom = ({ roomId }: UseSubscribeRoomPropsType) => {
+  const themeIdParams = getUrlParams('theme_id')
   let ActionCable = null as any
   if (typeof window !== 'undefined') {
     ActionCable = require('actioncable')
@@ -20,7 +22,7 @@ export const useSubscribeRoom = ({ roomId }: UseSubscribeRoomPropsType) => {
 
   const [selectedCards, setSelectedCards] = useState<number[]>([])
   const [title, setTitle] = useState('')
-  const [themeId, setThemeId] = useState<IdType>('')
+  const [themeId, setThemeId] = useState<IdType | null>(themeIdParams)
   const [isConnected, setIsConnected] = useState(false)
   const [totalCount, setTotalCount] = useState(0)
   const handleResetState = () => {
