@@ -1,4 +1,4 @@
-import useFetch from '../../common/useFetch'
+import useFetch from '../common/useFetch'
 import { IdType } from '@/types/index'
 import getTheme from '@/api/domain/theme/getTheme'
 

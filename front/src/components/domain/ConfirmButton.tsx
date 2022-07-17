@@ -1,6 +1,6 @@
 import { Dispatch, SetStateAction } from 'react'
 import { IdType } from '@/types/index'
-import { useCreateCard } from '@/hooks/apiRequest/domain/card/useCreateCard'
+import { useCreateCard } from '@/hooks/apiRequest/domain/useCreateCard'
 import { CardType } from '@/types/card'
 import { PrimaryButton } from '../common/Button/PrimaryButton'
 

@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { IdType } from '@/types/index'
-import { useCreateTheme } from '@/hooks/apiRequest/domain/theme/useCreateTheme'
+import { useCreateTheme } from '@/hooks/apiRequest/domain/useCreateTheme'
 import { useSubscribeRoom } from '@/hooks/useSubscribeRoom'
 import { HasThemeRoom } from './HasThemeRoom'
 import { getUrlParams } from '@/utils/getUrlParams'

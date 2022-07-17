@@ -1,4 +1,3 @@
-import deleteCardsByThemes from '@/api/domain/theme/deleteCardsByTheme'
 import updateThemeCount from '@/api/domain/theme/updateThemeCount'
 import { CardType } from '@/types/card'
 import { IdType } from '@/types/index'

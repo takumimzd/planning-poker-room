@@ -1,5 +1,5 @@
 import getRoom from '@/api/domain/room/getRoom'
-import useFetch from '../../common/useFetch'
+import useFetch from '../common/useFetch'
 import { IdType } from '@/types/index'
 import { GetRoomResponseType } from '@/types/api/room'
 import { getRoomMapper } from 'src/mapper/room/getRoomMapper'

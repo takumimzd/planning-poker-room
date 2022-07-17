@@ -1,7 +1,7 @@
 import { IdType } from '@/types/index'
 import { useRouter } from 'next/router'
 import { CardType } from '@/types/card'
-import { useUpdateThemeCount } from '@/hooks/apiRequest/domain/theme/useUpdateThemeCount'
+import { useUpdateThemeCount } from '@/hooks/apiRequest/domain/useUpdateThemeCount'
 import { PrimaryButton } from '../common/Button/PrimaryButton'
 import styled from 'styled-components'
 
